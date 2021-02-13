@@ -9,7 +9,7 @@ namespace Business.Abstract
 {
     public interface IProductService
     {
-        IDataResult<List<Product>> GelAll();
+        IDataResult<List<Product>> GetAll();
 
         IDataResult<List<Product>> GetAllByCategoryId(int id);
 

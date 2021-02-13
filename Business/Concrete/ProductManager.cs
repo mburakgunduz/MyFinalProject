@@ -33,20 +33,25 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProductAdded);
         }
 
-        public IDataResult<List<Product>> GelAll()
-        {
-            throw new NotImplementedException();
-        }
-
         public IDataResult<List<Product>> GetAll()
         {
-            if (DateTime.Now.Hour == 22)
+            if (DateTime.Now.Hour == 24)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
 
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(), Messages.ProductsListed);
         }
+
+        //public IDataResult<List<Product>> GetAll()
+        //{
+        //    //if (DateTime.Now.Hour == 22)
+        //    //{
+        //    //    return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
+        //    //}
+
+        //    return new SuccessDataResult<List<Product>>(_productDal.GetAll(), Messages.ProductsListed);
+        //}
 
         public IDataResult<List<Product>> GetAllByCategoryId(int id)
         {
